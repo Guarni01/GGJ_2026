@@ -25,14 +25,16 @@ public class Player : MonoBehaviour
             AnimatorController.Instance.directions = -1;
             rb.constraints &= ~RigidbodyConstraints2D.FreezePositionX;
             assex = -1f;
-   
+            AudioController.Instance.PlayClipEffect(1);
+
         }
         else if (Input.GetKey(KeyCode.RightArrow))
         {
             AnimatorController.Instance.directions = 1;
              rb.constraints &= ~RigidbodyConstraints2D.FreezePositionX;
             assex = 1f;
-          
+            AudioController.Instance.PlayClipEffect(2);
+
         }
         if (Input.GetKey(KeyCode.UpArrow) && MaskController.Instance.Skill2)
         {
@@ -53,6 +55,7 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && aTerra  && MaskController.Instance.Mask_1 )
         {
             rb.AddForce(new Vector2(0, forzaSalto), ForceMode2D.Impulse);
+            AudioController.Instance.PlayClipEffect(3);
         }
 
     }
