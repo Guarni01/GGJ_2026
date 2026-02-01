@@ -35,7 +35,7 @@ public class MaskController : MonoSingleton<MaskController>
         if (Mask_1)
         {
             PlayerUI.Instance.Mask1_selected();
-
+            AudioController.Instance.PlayClip(0);
             Skill1 = true;
             Skill2 = false;
             Skill3 = false;
@@ -48,6 +48,7 @@ public class MaskController : MonoSingleton<MaskController>
         if (Mask_2)
         {
             PlayerUI.Instance.Mask2_selected();
+            AudioController.Instance.PlayClip(1);
             Skill1 = false;
             Skill2 = true;
             Skill3 = false;
@@ -59,6 +60,7 @@ public class MaskController : MonoSingleton<MaskController>
         //}
         if (Mask_3)
         {
+            AudioController.Instance.PlayClip(2);
             PlayerUI.Instance.Mask3_selected();
             Skill1 = false;
             Skill2 = false;
