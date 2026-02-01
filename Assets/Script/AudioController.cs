@@ -24,32 +24,37 @@ public class AudioController : MonoSingleton<AudioController>
 
     void Update()
     {
-        volumeSliderMusic.value = Musiche.volume;
-        volumeSliderEffect.value = Effect.volume;
 
-        volumeSliderMusic.onValueChanged.AddListener(OnVolumeChanged);
-        volumeSliderEffect.onValueChanged.AddListener(OnVolumeChanged);
         if (!Musiche.isPlaying)
         {
             //PlayNextClip();
         }
     }
 
-    public void OnVolumeChanged(float value)
+
+    public void PlayClip(int y)
     {
-        Musiche.volume = value;
-        Effect.volume = value;
+        if (musiclips.Length == 0)
+            return;
+
+
+        Musiche.clip = musiclips[x];
+        Musiche.Play();
+
+
+        indiceclip = (indiceclip + 1) % musiclips.Length;
     }
-    //void PlayNextClip()
-    //{
-    //    if (musiclips.Length == 0)
-    //        return;
+    public void PlayClipEffect(int x)
+    {
+        if (effectclips.Length == 0)
+            return;
 
 
-    //    Musiche.clip = musiclips[indiceclip];
-    //    Musiche.Play();
+        Effect.clip = musiclips[x];
+        Effect.Play();
 
 
-    //    indiceclip = (indiceclip + 1) % musiclips.Length;
-    //}
+        indiceclip = (indiceclip + 1) % effectclips.Length;
+    }
+
 }
