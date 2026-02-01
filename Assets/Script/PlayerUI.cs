@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class PlayerUI : MonoSingleton<PlayerUI>
 {
@@ -74,8 +75,15 @@ public class PlayerUI : MonoSingleton<PlayerUI>
         if(MaskController.Instance.UnlockMask_2)
         {
             Dialogo1.SetActive(true);
+            StartCoroutine(start());
 
         }
     }
+    IEnumerator start()
+    {
+        yield return new WaitForSeconds(2f);
+        Dialogo1.SetActive(false);
 
+
+    }
 }
